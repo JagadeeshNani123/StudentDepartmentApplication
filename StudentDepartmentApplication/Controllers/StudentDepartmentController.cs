@@ -125,7 +125,6 @@ namespace StudentDepartmentApplication.Controllers
         }
         [HttpGet]
         [Route("GetStudentDetails")]
-
         public IEnumerable<Student> GetStudentList()
         {
             return students;
