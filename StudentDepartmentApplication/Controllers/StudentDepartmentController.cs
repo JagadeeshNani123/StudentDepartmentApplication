@@ -17,7 +17,7 @@ namespace StudentDepartmentApplication.Controllers
             //add student
 
             var result = "Not a valid Department or Department aleardy exists";
-            if (departments.Any(dpn => dpn.DepartmentNo == dpt.DepartmentNo))
+            if (dpt!=null)
             {
                 try
                 {
@@ -102,6 +102,7 @@ namespace StudentDepartmentApplication.Controllers
         }
 
         [HttpDelete]
+        [Route("DeleteStudentRecord")]
         public IActionResult Delete(int stdNo)
         {
             var result = "Student Not found";
@@ -122,13 +123,15 @@ namespace StudentDepartmentApplication.Controllers
             else
                 return Ok(result);
         }
-
-
+        [HttpGet]
+        [Route("GetStudentDetails")]
         public IEnumerable<Student> GetStudentList()
         {
             return students;
         }
 
+        [HttpGet]
+        [Route("GetDepartmentDetails")]
         public IEnumerable<Department> GetDepartmentList()
         {
             return departments;
